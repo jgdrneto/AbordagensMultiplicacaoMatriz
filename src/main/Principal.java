@@ -1,8 +1,9 @@
 package main;
 
-import LeitorArquivo.LeitorMatriz;
 import algoritmos.Algoritmo;
 import concorrente.Concorrente;
+import manipularArquivo.EscritorMatriz;
+import manipularArquivo.LeitorMatriz;
 import sequencial.Sequencial;
 import util.Matriz;
 
@@ -40,7 +41,9 @@ public class Principal {
                 break;    
             }
             
-            algoritmo.MultiplicarMatrizes(matrizA, matrizB).imprimir();
+            EscritorMatriz escritor = new EscritorMatriz();
+            
+            escritor.EscreverMatrizEmArquivo(algoritmo.MultiplicarMatrizes(matrizA, matrizB));
             
         }else{
             System.out.println("Falta de argumentos para início do algoritmo");

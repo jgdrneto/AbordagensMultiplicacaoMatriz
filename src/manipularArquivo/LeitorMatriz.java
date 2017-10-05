@@ -1,4 +1,4 @@
-package LeitorArquivo;
+package manipularArquivo;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
