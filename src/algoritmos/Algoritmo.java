@@ -10,6 +10,6 @@ public interface Algoritmo{
      * @param   matrizB     Matriz do lado direito a ser multiplicada.
      * @return              Matriz resultante da multiplicação.
      */
-    public abstract Matriz MultiplicarMatrizes(Matriz matrizA, Matriz matrizB);
+    public abstract Matriz multiplicarMatrizes(Matriz matrizA, Matriz matrizB);
     
 }

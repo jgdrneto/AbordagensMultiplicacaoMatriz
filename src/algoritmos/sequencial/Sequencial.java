@@ -6,7 +6,7 @@ import util.Matriz;
 public class Sequencial implements Algoritmo {
     
     @Override
-    public Matriz MultiplicarMatrizes(Matriz matrizA, Matriz matrizB) {
+    public Matriz multiplicarMatrizes(Matriz matrizA, Matriz matrizB) {
         
         Matriz matrizR = null;
         

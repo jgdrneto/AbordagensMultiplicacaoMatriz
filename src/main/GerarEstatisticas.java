@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import algoritmos.Algoritmo;
@@ -33,7 +34,7 @@ public class GerarEstatisticas {
      * @param numeroDeInteracao Número de interações a serem realizadas  
      * @return                  Lista com as medições;
      */
-    private void obterMedicoes(int numeroDeInteracao) {
+    public void obterMedicoes(int numeroDeInteracao) {
        
         
         for(int j=0;j<matrizes.size();j=j+2){
@@ -55,8 +56,12 @@ public class GerarEstatisticas {
             System.out.println("===============================================");
             long tempoMedioSequecial = medicoesSequencial.stream().mapToLong(Long::longValue).sum()/medicoesSequencial.size();
             long tempoMedioConcorrente = medicoesConcorrente.stream().mapToLong(Long::longValue).sum()/medicoesConcorrente.size();
+            System.out.println("Tempo minimo sequencial: " + Collections.min(medicoesSequencial));
+            System.out.println("Tempo minimo concorrente: " + Collections.min(medicoesConcorrente));
             System.out.println("Tempo médio sequencial: " + tempoMedioSequecial);
             System.out.println("Tempo médio concorrente: " + tempoMedioConcorrente);
+            System.out.println("Tempo máximo sequencial: " + Collections.max(medicoesSequencial));
+            System.out.println("Tempo máximo concorrente: " + Collections.max(medicoesConcorrente));
             System.out.println("Desvio padrão Sequencial: " + obterDesvioPadrao(medicoesSequencial));
             System.out.println("Desvio padrão Concorrente: " + obterDesvioPadrao(medicoesConcorrente));
             System.out.println("Speed-Up: "+ ((double)tempoMedioSequecial)/tempoMedioConcorrente);
@@ -79,7 +84,7 @@ public class GerarEstatisticas {
         LeitorMatriz leitor = new LeitorMatriz();
         
         for(String nome : arquivos){
-            matrizes.add(leitor.converterLexemasParaMatriz(nome));
+            matrizes.add(leitor.converterArquivoParaMatriz(nome));
         }
         
         return matrizes;
@@ -90,7 +95,7 @@ public class GerarEstatisticas {
      * 
      * @return Lista com os nomes das instâncias a serem usadas nas estatísticas
      */
-    public List<String> obterNomesInstancias(){
+    private List<String> obterNomesInstancias(){
         
         List<String> nomes = new ArrayList<String>();
         
@@ -113,13 +118,23 @@ public class GerarEstatisticas {
      * 
      * @return          Tempo de uma execução em nanosegundos
      */
-    public long obterTempoDeExecucao(Algoritmo algoritmo,Matriz matrizA, Matriz matrizB){
+    private long obterTempoDeExecucao(Algoritmo algoritmo,Matriz matrizA, Matriz matrizB){
         
-        long tempoInicial = System.nanoTime();
+        if(matrizA.getLinha()<=128){
         
-        algoritmo.MultiplicarMatrizes(matrizA, matrizB);
+            long tempoInicial = System.nanoTime();
         
-        return System.nanoTime() - tempoInicial;
+            algoritmo.multiplicarMatrizes(matrizA, matrizB);
+        
+            return System.nanoTime() - tempoInicial;
+        }else{
+            
+            long tempoInicial = System.currentTimeMillis();
+            
+            algoritmo.multiplicarMatrizes(matrizA, matrizB);
+        
+            return System.currentTimeMillis() - tempoInicial;
+        }
     }
     
     /**

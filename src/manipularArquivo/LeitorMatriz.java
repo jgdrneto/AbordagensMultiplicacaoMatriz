@@ -48,7 +48,7 @@ public class LeitorMatriz {
      * @param   nome    Nome do arquivo
      * @return          Matriz com os valores presentes no arquivo
      */
-    public Matriz converterLexemasParaMatriz(String nome){
+    public Matriz converterArquivoParaMatriz(String nome){
         
         Matriz matriz = null;
         

@@ -5,7 +5,7 @@ import util.Matriz;
 public class Calcular implements Runnable{
     
     Matriz matrizA,matrizB,matrizR;
-    int a,b;
+    int lMin,lMax;
     
     /**
      * Construtor da classe
@@ -20,16 +20,16 @@ public class Calcular implements Runnable{
         this.matrizA = nMatrizA;
         this.matrizB = nMatrizB;
         this.matrizR = nMatrizR;
-        this.a = nI;
-        this.b = nM;
+        this.lMin = nI;
+        this.lMax = nM;
     }
         
     @Override
     public void run() {
-        for(;this.a<this.b;this.a++){
+        for(;this.lMin<this.lMax;this.lMin++){
             for(int j=0;j<this.matrizB.getColuna();j++){
                 for (int x = 0; x<this.matrizA.getColuna(); x++) {
-                    this.matrizR.getMatriz()[this.a][j] += this.matrizA.getMatriz()[this.a][x]*this.matrizB.getMatriz()[x][j];
+                    this.matrizR.getMatriz()[this.lMin][j] += this.matrizA.getMatriz()[this.lMin][x]*this.matrizB.getMatriz()[x][j];
                 }
             }
         }  

@@ -21,7 +21,7 @@ public class Concorrente implements Algoritmo{
         this.numThreads = nNumThreads;
     }
     
-    public Matriz MultiplicarMatrizes(Matriz matrizA, Matriz matrizB) {
+    public Matriz multiplicarMatrizes(Matriz matrizA, Matriz matrizB) {
         
         Matriz matrizR=null;
         

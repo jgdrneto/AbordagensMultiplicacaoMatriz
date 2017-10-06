@@ -20,8 +20,8 @@ public class Principal {
                        
             LeitorMatriz leitor = new LeitorMatriz();
             
-            Matriz matrizA = leitor.converterLexemasParaMatriz("instancias/A"+args[0]+"x"+args[0]+".txt");
-            Matriz matrizB = leitor.converterLexemasParaMatriz("instancias/B"+args[0]+"x"+args[0]+".txt");
+            Matriz matrizA = leitor.converterArquivoParaMatriz("instancias/A"+args[0]+"x"+args[0]+".txt");
+            Matriz matrizB = leitor.converterArquivoParaMatriz("instancias/B"+args[0]+"x"+args[0]+".txt");
             
             Algoritmo algoritmo = null;
             
@@ -43,7 +43,7 @@ public class Principal {
             
             EscritorMatriz escritor = new EscritorMatriz();
             
-            escritor.EscreverMatrizEmArquivo(algoritmo.MultiplicarMatrizes(matrizA, matrizB));
+            escritor.escreverMatrizEmArquivo(algoritmo.multiplicarMatrizes(matrizA, matrizB));
             
         }else{
             System.out.println("Falta de argumentos para início do algoritmo");

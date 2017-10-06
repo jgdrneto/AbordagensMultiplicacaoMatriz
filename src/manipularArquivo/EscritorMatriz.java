@@ -12,7 +12,7 @@ public class EscritorMatriz {
      * 
      * @param matriz Matriz na qual o valores devem ser gravados
      */
-    public void EscreverMatrizEmArquivo(Matriz matriz){
+    public void escreverMatrizEmArquivo(Matriz matriz){
         
         String nomeArquivo = "resultados/C"+matriz.getLinha()+"x"+matriz.getColuna()+".txt";
         
