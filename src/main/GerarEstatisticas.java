@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import algoritmos.Algoritmo;
-import concorrente.Concorrente;
+import algoritmos.concorrente.Concorrente;
+import algoritmos.sequencial.Sequencial;
 import manipularArquivo.LeitorMatriz;
-import sequencial.Sequencial;
 import util.Matriz;
 
 public class GerarEstatisticas {

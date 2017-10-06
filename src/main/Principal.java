@@ -1,10 +1,10 @@
 package main;
 
 import algoritmos.Algoritmo;
-import concorrente.Concorrente;
+import algoritmos.concorrente.Concorrente;
+import algoritmos.sequencial.Sequencial;
 import manipularArquivo.EscritorMatriz;
 import manipularArquivo.LeitorMatriz;
-import sequencial.Sequencial;
 import util.Matriz;
 
 public class Principal {

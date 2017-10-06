@@ -1,4 +1,4 @@
-package concorrente;
+package algoritmos.concorrente;
 
 import util.Matriz;
 

@@ -1,4 +1,4 @@
-package sequencial;
+package algoritmos.sequencial;
 
 import algoritmos.Algoritmo;
 import util.Matriz;
